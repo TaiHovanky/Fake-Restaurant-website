@@ -1,0 +1,446 @@
+<html>
+<head>
+	<title>Scribl</title>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.3/angular.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.3/angular-route.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+<script src="script.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet"></link>
+<link href="https://fonts.googleapis.com/css?family=Fjalla+One" rel="stylesheet"></link>
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"></link>
+<style type="text/css">
+.boldness {
+  font-weight: bold;
+}
+
+#navigate {
+  height: 50px;
+}
+
+.navbar-nav {
+  float: none;
+  display: inline-block;
+}
+
+.info {
+  color: #565656;
+}
+
+.whiteText {
+  color: white;
+}
+
+.topMarg {
+  margin-top: 75px;
+}
+
+#about {
+  background-color: #A5A5B1;
+}
+
+.bottomPad {
+  padding-bottom: 75px;
+}
+
+.leftPad {
+  padding-left: 75px;
+}
+
+#aboutContent {
+  padding-right: 75px;
+  padding-top: 50px;
+}
+
+.jumbotron {
+  color: #F8F8F8;
+  text-shadow: 2px 2px black;
+    
+}
+
+#aboutJumbo {
+  background:url("http://www.pickyourtrail.com/blog/wp-content/uploads/2016/07/AIP_Food_Nara-Thai-Cuisine_2015-06-03_Full-Res_012_web-slider.jpg");
+  margin-top: -80px;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#menuJumbo {
+  background:url("http://static.asiawebdirect.com/m/bangkok/portals/bangkok-com/homepage/food-top10/pagePropertiesImage/thai-foods.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#menu {
+  background-color: #56BB8F;
+}
+
+.darkTurq {
+  color: #01524B;
+}
+
+.locale {
+  color: #062F4F;
+}
+
+button {
+  margin-top: 5px;
+}
+
+.price {
+  background-color: #01524B;
+}
+
+img {
+  height: 400px;
+  width: 600px;
+}
+
+.menuSections {
+  height: 15px;
+  padding-top: 5px;
+}
+
+#locations {
+  background-color: #76CAD4;
+}
+
+#locationsJumbo {
+  background:url("http://static.asiawebdirect.com/m/phuket/portals/phuket-com/shared/teasersL/TOP10/10-food/teaserMultiLarge/image/10-food-L.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#checkout {
+  height: 100px;
+  margin-top: 0px;
+}
+
+#checkoutJumbo {
+  background:url("http://bevcooks.com/wp-content/uploads/2012/09/thaicup5.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.purchasedItemCost {
+  text-align: right;
+  font-size: 20px;
+}
+
+#itemsBought {
+  margin-top: 50px;
+  
+}
+
+.cancelItem {
+  text-align: right;
+  cursor: hand; cursor: pointer;
+  color: red;
+  font-size: 20px;
+}
+
+.purchasedItemName {
+  font-size: 25px;
+}
+
+.purchasedItems {
+  border: 1px black solid;
+  border-radius: 10px;
+  margin-top: 10px;
+  background-color: #57BC90;
+  color: #01524B;
+}
+
+#totalLabel {
+  margin-top: 40px;
+}
+
+#total {
+  text-align: right;
+  margin-top: 30px;
+}
+
+#totalTitle {
+  font-size: 30px;
+}
+
+.form-group {
+  margin-top: 20px;
+ 
+}
+
+input {
+  margin-left: 30px;
+}
+
+#submitPayment {
+  margin-top: 40px;
+  margin-bottom: 60px;
+  background-color: #01524B;
+}
+
+</style>
+</head>
+
+
+<body>
+    
+<div class="container">
+  <div class="navbar navbar-default navbar-fixed-top" id="navigate">
+    <div class= "navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <a class="navbar-brand" href="#" id="restaurantName">Thai How Are You</a>
+    <div class= "navbar-collapse collapse" id="nav-collapse">
+    <ul class="navbar-nav nav">
+      <li><a href="#">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#locations">Locations</a></li>
+      <li><a href="#checkout">Checkout</a></li>
+    </ul>
+    </div>
+  </div>
+  
+  <!--<script id="aboutRestaurant" type="text/x-handlebars-template"></script> !-->
+
+  <div id="about" class="bottomPad whiteText topMarg">
+    <div class="jumbotron" id="aboutJumbo">
+    <h1>About</h1>
+     </div>
+    <div id="aboutContent" class="leftPad">
+        {{#each facts}}
+        <p class = "info boldness">{{info}}</p>
+        {{/each}}
+    </div>
+  </div>
+  <div id="stuffBought"></div>
+  <div id="menu" class="bottomPad whiteText">
+    <div class="jumbotron" id="menuJumbo">
+    <h1>Menu</h1>
+    <p id="menuInstructions">If you would like to order online, click on the price for each item and then proceed to the Checkout page whenever you're done.</p>
+    </div>
+  <div id="menuContent" class="topMarg leftPad">
+      {{#each images}}
+      <h3 class="title darkTurq boldness"> {{title}} </h3>
+      <button class="price btn btn-success boldness" data-id="{{@index}}"> {{price}} </button>
+      <h5 class="description darkTurq boldness">{{description}}</h5>
+      <img class="picture" src={{src}}></img>
+      {{/each}}
+  </div>
+  </div>
+  
+  <div id="locations" class="bottomPad">
+    <div class="jumbotron" id="locationsJumbo">
+  <h1>Locations</h1>
+    </div>
+  <div id="locationContent" class="topMarg leftPad">
+      {{#each places}}
+      <h3 class="name locale boldness"> {{name}} </h3>
+      <h5 class="address locale boldness"> {{address}} </h5>
+      <h5 class="phone locale boldness"> {{phone}} </h5>
+      <h5 class="hours locale boldness"> {{hours}} </h5>
+      {{/each}}
+  </div>
+  </div>
+  
+  <div id="checkout">
+    <div class="jumbotron" id="checkoutJumbo">
+    <h1>Order Online Checkout</h1>
+    <h3 id="shoppingCart" class="whiteText topMarg">Shopping Cart</h3>
+    </div>
+    <div id="itemsBought"></div>
+
+    <div id="totalLabel" class="col-md-8 well boldness"><h4 id="totalTitle" class="boldness">Total</h4><h4 id="total"></h4></div>
+    <form class="form-inline" action="" method="post" enctype="multipart/form-data">
+      <div class="form-group col-md-8" id="creditCard">
+        <label for="ccNumber">Credit Card Number</label>
+        <input id="ccNumber" class="form-control" name="credCard"></input>
+        <small id="ccExample" class="form-text text-muted">For example: 1234567890123456</small>
+      </div> <!--end of creditCard form group !-->
+      <div class="form-group col-md-8">
+        <label for="expDate">Expiration Date</label>
+        <input id="expDate" class="form-control" name="expireDate"></input>
+        <small id="expDateExample" class="form-text text-muted">For example: 0119</small>
+      </div>
+      <div class="form-group col-md-8">
+        <label for="cvc">CVC Number</label>
+        <input id="cvc" class="form-control" name="cvcNumber"></input>
+        <small id="cvcExample" class="form-text text-muted">For example: 123</small>
+      </div>
+      <div class="form-group col-md-8">
+        <label for="cardholder">Cardholder Name</label>
+        <input id="cardholder" class="form-control" name="cardholderName"></input>
+      <small id="cardholderExample" class="form-text text-muted">For example: Jane Doe</small>
+      </div>
+      <div class="form-group col-md-8">
+        <label for="billingAddress">Billing Street Address</label>
+        <input id="billingAddress" class="form-control" name="cardholderAddress"></input>
+        <small id="addressExample" class="form-text text-muted">For example: 123 Guadalupe St</small>
+      </div>
+      <div class="form-group col-md-6">
+        <label for="billingCity">City</label>
+        <input id="billingCity" class="form-control" name="cardholderCity"></input>
+<small id="cityExample" class="form-text text-muted">For example: Austin</small>
+      </div>
+      <div class="form-group col-md-8">
+        <label for="billingState">State</label>
+        <input id="billingState" class="form-control" name="cardholderState"></input>
+<small id="stateExample" class="form-text text-muted">For example: TX</small>
+      </div>
+      <div class="form-group col-md-8">
+        <label for="billingZip">Zip Code</label>
+        <input id="billingZip" class="form-control" name="cardholderZip"></input>
+<small id="zipExample" class="form-text text-muted">For example: 78705</small>
+      </div>
+<input type="submit" id="submitPayment" class="col-md-8 btn whiteText" />
+    </form>
+  </div>
+
+</div> <!--end of container div !-->
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+  var total = 0;
+  $("#total").html(total);
+  
+  //click function for when the price of an item is clicked. This adds to the shopping cart
+  $(".price").click(function(event){
+    var priceNum = $(this).data("id"); //pulls the data-id attribute of whatever price button is clicked. This number is used as the index value when we try to reference the price.
+    var purchase = images[priceNum].price;
+    alert(purchase); //use the priceNum variable to access that price value from the data.images object
+    var itemName = data.images[priceNum].title;
+    var floatNum = purchase.replace(/[$]/g, ""); //remove the "$"
+    var dollarValue = parseFloat(floatNum); //capture the price value as a float
+    var elems = "<br /><div class='purchasedItems col-md-8'><p class='cancelItem boldness'>x</p><h4 class='purchasedItemName boldness'>"+itemName+"</h4><p class='purchasedItemCost boldness'>"+ purchase + "</p></div>"; //the div that will be added to the shopping cart for each selected items
+    $("#itemsBought").append(elems); //use .append() to add the div
+    total = total + dollarValue;
+    $("#total").html(total); //total cost displays
+    
+    //if the cancel button is clicked, we use $(this).parent().remove() to remove the div. Since the purchasedItems div is the parent div that we want to remove, we use the parent() method.
+    $(".cancelItem").click(function(){
+      $(this).parent().remove();
+      total = total - dollarValue;
+      dollarValue = 0;
+      $("#total").html(total);
+    });
+    
+  });
+  
+  var successfulFieldCount = 0;
+  //the cardNumber function uses regexes for the various credit card companies
+  function cardNumber(inputValue){
+    var amex = /^(?:3[47][0-9]{13})$/;
+    var visa = /^(?:4[0-9]{12}(?:[0-9]{3})?)$/;
+    var master = /^(?:5[1-5][0-9]{14})$/;
+    var discover = /^(?:6(?:011|5[0-9][0-9])[0-9]{12})$/;
+    if(inputValue.match(amex) || inputValue.match(visa) || inputValue.match(master) || inputValue.match(discover)){
+      successfulFieldCount += 1;
+    } else {
+      alert("Please enter a valid Credit Card number.");
+    }
+  } //if the input credit card value matches the possible credit cards, we add 1 to the successfulFieldCount. Otherwise an alert appears. This pattern continues for the rest of the fields.
+  
+  function expDate(inputExpDate){
+    var validDate = /\d{4}/g; //looks for a 4-digit experation date value
+    if(inputExpDate.match(validDate) && inputExpDate.length === 4){
+      successfulFieldCount += 1;
+    } else {
+      alert("Please enter a valid Expiration Date.");
+    }
+  }
+  
+  function cvcNumber(inputCVC){
+    var amexCvc = /\d{4}/g;
+    var otherCardCvc = /\d{3}/g; //looks for 3-digit CVC value
+    if((inputCVC.match(amexCvc) && inputCVC.length === 4) || (inputCVC.match(otherCardCvc) && inputCVC.length === 3)){
+      successfulFieldCount += 1;
+    } else {
+      alert("Please enter a valid CVC number.");
+    }
+  }
+  
+  function cardholderName(inputName){
+    if(inputName.length > 1 && !inputName.match(/[&*();|<>"'%$^#+-]/g)){ //if name is longer than 1 character and doesn't have the mentioned special characters
+      successfulFieldCount += 1;
+    } else {
+      alert("Please enter the name on your credit card without special characters.");
+    }
+  }
+  
+  function address(inputAddress){
+    var addressArr = inputAddress.split(" "); //split the address input into an array
+    if(addressArr[0].match(/\d+/g) && addressArr[1].match(/\w+/g)){ //if the first element is a number and the second element is a word, we consider it to be a proper address
+      successfulFieldCount += 1;
+    } else {
+      alert("Please enter the billing address for your credit card.");
+    }
+  }
+  
+  function city(inputCity){
+    if(inputCity.match(/\w+/g)){ //regex for a city name with at least 1 letter
+      successfulFieldCount += 1;
+    } else {
+      alert("Please enter in the city of your billing address on your credit card.");
+    }
+  }
+  
+  function state(inputState){
+    var statesArr = ["AL", "AK","AZ","AR","CA","CO","CT","DE","FL","GA","HI","ID", "IL","IN","IA","KS","KY","LA","ME","MD","MA","MI","MN","MS","MO","MT","NE","NV","NH","NJ","NM","NY","NC","ND","OH","OK","OR","PA","RI","SC","SD","TN","TX","UT","VT","VA","WA","WV","WI","WY","AS","DC","FM","GU","MH","MP","PW","PR","VI"];
+    if(statesArr.indexOf(inputState) !== -1){ //the input State has to be one of the states listed
+      successfulFieldCount += 1;
+    } else {
+      alert("Please enter a valid state.");
+    }
+  }
+  
+  function zipCode(inputZip){
+    var zipMatch1 = /\d{5}-\d{4}/g; //looks for 9 digit zip code
+    var zipMatch2 = /\d{5}/g; //looks for 5 digit zip code
+    if((inputZip.match(zipMatch1) && inputZip.length === 10) || (inputZip.match(zipMatch2) && inputZip.length === 5)){
+      successfulFieldCount += 1;
+    } else {
+      alert("Please enter a valid zip code.");
+    }
+  }
+ 
+  $("#submitPayment").click(function(){
+  //cardNumber(creditCardInput);
+    var ccVal = $("#ccNumber").val().replace(/\s/g, ""); //pulls input credit card number value using the .val() method and then replaces whitespaces
+    var expVal = $("#expDate").val().replace(/[/]/g, "");
+    var cvcVal = $("#cvc").val();
+    var nameVal = $("#cardholder").val().toUpperCase();
+    var addressVal = $("#billingAddress").val();
+    var cityVal = $("#billingCity").val();
+    var stateVal = $("#billingState").val().toUpperCase();
+    var zipVal = $("#billingZip").val();
+    cardNumber(ccVal);
+    expDate(expVal);
+    cvcNumber(cvcVal);
+    cardholderName(nameVal);
+    address(addressVal);
+    city(cityVal);
+    state(stateVal);
+    zipCode(zipVal);
+    if(successfulFieldCount === 8){
+      alert("Payment was successful!");
+    } else {
+      alert("Please try filling out the form again.");
+    }
+  });
+  //
+  
+});
+</script>
+</body>
